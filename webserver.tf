@@ -35,7 +35,7 @@ resource "local_file" "ec2key" {
 
 # run user data
 resource "aws_route53_record" "r53_backend_record" {
-  name    = "backenddemo.goabode.co"
+  name    = "demo.example.com"
   zone_id = "${data.aws_route53_zone.primary.zone_id}"
   type    = "A"
   ttl     = "300"

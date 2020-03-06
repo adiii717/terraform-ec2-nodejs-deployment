@@ -50,5 +50,5 @@ resource "aws_route_table_association" "PubRTAssoc2a" {
 }
 
 data "aws_route53_zone" "primary" {
-  name = "goabode.co."
+  name = "example.com."
 }
