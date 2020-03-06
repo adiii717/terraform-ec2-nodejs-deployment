@@ -7,7 +7,7 @@ provider "aws" {
   region              = "${var.region}"
   profile             = "${var.aws_profile_name}"
 
-  # to allow specific IPs
+  # to allow specific account for deployment, set your AWS account number here
   # allowed_account_ids = ["1234567890"]
 }
 
