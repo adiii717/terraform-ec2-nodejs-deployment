@@ -12,6 +12,28 @@ Deploy nodejs application using Terraform asiging public IP adress and domain
 
 
 
+
+### Installation
+
+All you need to the following command to deploy application
+
+```sh
+$ cd terraform-ec2-nodejs-deployment
+$ terraform init
+$ terraform plan
+$ terraform apply
+```
+
+
+### Todos
+
+ - Make it moduler
+ - Add support for different platform
+
+
+
+
+
 ### Variables
 
 ```
@@ -21,6 +43,9 @@ variable "env_prefix_name" {
   default     = "demo"
 
 }
+
+# region for aws deployment
+
 variable "region" {
   default     = "us-west-1"
   type        = "string"
@@ -31,11 +56,15 @@ variable "USER_DATA_DIR" {
   description = "To place user data in the folder such users keys etc, make sure your deployment system is secure"
   default     = "./user-data"
 }
+
+# AWS profile that will be used for AWS account 
 variable "aws_profile_name" {
   type        = "string"
   description = "please enter the AWS profile name by default will test"
   default     = "test"
 }
+
+
 # Nodejs Managed AMI list
 # https://bitnami.com/stack/nodejs/cloud/aws/amis
 variable "AMI_NODE_v12" {
@@ -43,6 +72,9 @@ variable "AMI_NODE_v12" {
   description = "To run EC2 Instance with Node v12"
   default     = "ami-0bb49f572ba714810"
 }
+
+# Node version 
+
 variable "AMI_NODE_v10" {
   type        = "string"
   description = "To run EC2 Instance with Node v10"
@@ -60,7 +92,7 @@ variable "key_name" {
   default     = "ec2key"
 }
 
-# IP list for ssh
+# IP list for ssh, add list of IPS in the below array
 variable "allowed_ssh_ips" {
   type    = "list"
   default = ["110.10.10.10/32", "10.0.0.0/16"]
@@ -86,22 +118,11 @@ variable "availibility_zones" {
 }
 ```
 
-### Installation
-
-All you need to the following command to deploy application
-
-```sh
-$ cd terraform-ec2-nodejs-deployment
-$ terraform init
-$ terraform plan
-$ terraform apply
-```
 
 
-### Todos
 
- - Make it moduler
- - Add support for different platform
+
+
 
 License
 ----
